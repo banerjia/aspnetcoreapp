@@ -1,0 +1,21 @@
+﻿@page "{id:Guid}"
+@model aspnetcoreapp.Pages.Blogs.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blogs - Add New</title>
+</head>
+<body>
+    <form method="post">
+        <input asp-for="Blog.Id" type="hidden" />
+        Url: <input asp-for="Blog.Url" type="text" />
+        <button>Update</button>
+        <button asp-page="./Index" asp-page-handler="Delete" asp-route-id="@Model.Blog.Id">Delete</button>
+    </form>
+</body>
+</html>
+

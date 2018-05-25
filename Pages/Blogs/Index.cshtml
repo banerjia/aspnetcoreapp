@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blogs</title>
+</head>
+<body>
+    <h1>Blogs</h1>
+    <form method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>URL</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var blog in Model.Blogs)
+                {
+                    <tr>
+                        <td>@blog.Id</td>
+                        <td>
+                            <a href="@blog.Url" target="_blank">@blog.Url</a>
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@blog.Id">Edit</a>
+                            <button asp-page-handler="Delete" asp-route-id="@blog.Id">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+    <a asp-page="./Create">Add New</a>
+</body>
+</html>
+
+
